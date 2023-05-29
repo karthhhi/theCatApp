@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "52151e80-2c8c-42ad-a5ec-6a16c8cd2f68",
+		"name": "Cats APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "5983091",
+		"_collection_link": "https://www.postman.com/karthikckpillai/workspace/cats/collection/5983091-52151e80-2c8c-42ad-a5ec-6a16c8cd2f68?action=share&creator=5983091&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Get all Cats",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/cats?page=1&limit=10&sortBy=name&sortDirection=asc",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"cats"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "sortBy",
+							"value": "name"
+						},
+						{
+							"key": "sortDirection",
+							"value": "asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cat By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/cats/:id",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"cats",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "6474acfb530994ff41fa48d5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cats by Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/cats?name=J&page=1&limit=2",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"cats"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "J"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new Cat",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Thomas\",\r\n    \"breed\": \"Abyssinian\",\r\n    \"weight\": 6\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{domain}}/cats"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Cat",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Sassy\",\r\n    \"weight\": 9\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/cats/:id",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"cats",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "64748f7f154170e77db9515a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Cat",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/cats/:id",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"cats",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "6474ca357ae3fbef55f58d29"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
