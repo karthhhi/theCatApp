@@ -13,7 +13,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{domain}}/cats?page=1&limit=10&sortBy=name&sortDirection=asc",
+					"raw": "{{domain}}/cats?page=1&limit=10&sortBy=weight&sortOrder=desc",
 					"host": [
 						"{{domain}}"
 					],
@@ -31,11 +31,11 @@
 						},
 						{
 							"key": "sortBy",
-							"value": "name"
+							"value": "weight"
 						},
 						{
-							"key": "sortDirection",
-							"value": "asc"
+							"key": "sortOrder",
+							"value": "desc"
 						}
 					]
 				}
@@ -67,12 +67,12 @@
 			"response": []
 		},
 		{
-			"name": "Get Cats by Name",
+			"name": "Get Cats by Name / Breed",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{domain}}/cats?name=J&page=1&limit=2",
+					"raw": "{{domain}}/cats?name=J&breed=tes&page=1&limit=2",
 					"host": [
 						"{{domain}}"
 					],
@@ -83,6 +83,10 @@
 						{
 							"key": "name",
 							"value": "J"
+						},
+						{
+							"key": "breed",
+							"value": "tes"
 						},
 						{
 							"key": "page",
@@ -104,7 +108,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Thomas\",\r\n    \"breed\": \"Abyssinian\",\r\n    \"weight\": 6\r\n}",
+					"raw": "{\r\n    \"name\": \"Sinoy\",\r\n    \"breed\": \"American Bobtail\",\r\n    \"weight\": 4\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -178,6 +182,15 @@
 						}
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Breeds",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{domain}}/cats/breeds"
 			},
 			"response": []
 		}

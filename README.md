@@ -15,7 +15,7 @@ Clone the application and follow the below steps to run server and client applic
 6. The application will start to run in http://localhost:4000.
 
 #### Api Documentation
-Once the local server is started, import **docs/APIs.postman_collection.json** into collection and import **docs/Local.postman_environment.json** into variables on your postman app.
+Once the local server is started, import **server/collections/APIs.postman_collection.json** into collection and import **server/collections/Local.postman_environment.json** into variables on your postman app.
 Choose the environment as local and you can try out all the listed APIs in the collection.
 
 ### Client
