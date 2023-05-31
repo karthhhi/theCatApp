@@ -1,0 +1,42 @@
+.home {
+    &__container {
+        margin: 10px;
+    }
+
+    &__itemContainer {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__dataItem {
+        border-top: 1px solid #e9eaee;
+        padding: 1px 5px;
+        font-size: 13px;
+    }
+
+    &__filterBar {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__actionContainer {
+        margin: auto 15px auto auto;
+        display: flex;
+    }
+
+    &__filterContainer {
+        margin: 0px 15px
+    }
+
+    &__sortContainer {
+        margin: 0;
+    }
+
+    &__notFound {
+        font-size: 20px;
+        font-weight: bold;
+        color: rgb(244, 67, 54);
+        margin: 60px auto;
+    }
+
+}

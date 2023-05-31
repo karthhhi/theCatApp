@@ -1,0 +1,16 @@
+.home {
+    &__container {
+        margin: 10px;
+    }
+
+    &__itemContainer {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__dataItem {
+        border-top: 1px solid #e9eaee;
+        padding: 1px 5px;
+        font-size: 13px;
+    }
+}

@@ -4,7 +4,7 @@ Cats and all you need to know about them
 
 ## Getting Started
 
-1. Clone the application
+Clone the application and follow the below steps to run server and client application.
 
 ### Server
 1. Run ``cd server``.
@@ -13,10 +13,11 @@ Cats and all you need to know about them
 3. Modify .env file.
 5. Use ``yarn dev`` command to run the application in local with watch mode and live reloading.
 6. Use ``yarn prod`` command to run the application in higher environments.
+7. The application will start to run in http://localhost:4000.
 
 #### Api Documentation
-Once the local server is started, import Cats **docs/APIs.postman_collection.json** into collection and import **docs/Local.postman_environment.json** into variables to postman.
-Choose the nevironment as Local and you can try out all the listed APIs in the collection.
+Once the local server is started, import **docs/APIs.postman_collection.json** into collection and import **docs/Local.postman_environment.json** into variables on your postman app.
+Choose the environment as local and you can try out all the listed APIs in the collection.
 
 ## License
 **MIT license**

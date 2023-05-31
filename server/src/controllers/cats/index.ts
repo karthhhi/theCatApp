@@ -1,24 +1,25 @@
-import { Response, Request } from 'express'
+import { Response, Request } from 'express';
+import * as https from "https";
 import { ICat } from './../../types/cat';
 import Cat from '../../models/cat';
 
 const getAllCats = async (req: Request, res: Response): Promise<void> => {
     try {
         const {
-            query: { name, page, limit, sortBy='createdAt', sortDirection='desc'}
+            query: { name, breed, page, limit, sortBy = 'createdAt', sortOrder = 'desc' }
         } = req;
         // Filters
-        let filter = {};
-        if (name) {
-            filter = { 'name': { '$regex': name } }
+        const filter = {
+            ...(name ? { 'name': { '$regex': name, '$options': 'i' } } : {}),
+            ...(breed ? { 'breed': { '$regex': breed, '$options': 'i' } } : {})
         }
         // Sort
-        const sortDirections: any = {
+        const sortOrders: any = {
             'asc': 1,
             'desc': -1
         };
         const sort = {
-            [sortBy as string]: sortDirections[sortDirection as string]
+            [sortBy as string]: sortOrders[sortOrder as string]
         }
         let cats: ICat[];
         // Pagination
@@ -122,10 +123,39 @@ const deleteCat = async (req: Request, res: Response): Promise<void> => {
     }
 }
 
+const getAllCatBreeds = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const url: string = process.env.CATS_BREED_API || '';
+        if (!url) {
+            res.status(404).json({
+                message: 'Cat breeds not found!',
+            });
+            return;
+        }
+        https.get(url, (resp) => {
+            let data = '';
+            resp.on('data', (chunk) => {
+                data += chunk;
+            });
+            resp.on('end', () => {
+                const breeds = JSON.parse(data);
+                res.status(200).json({
+                    breeds
+                });
+            });
+        }).on("error", (error) => {
+            throw error;
+        });
+    } catch (error) {
+        throw error;
+    }
+}
+
 export {
     getAllCats,
     getCatById,
     addCat,
     updateCat,
-    deleteCat
+    deleteCat,
+    getAllCatBreeds
 };

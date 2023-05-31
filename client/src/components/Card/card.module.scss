@@ -1,0 +1,18 @@
+.card {
+    &__container {
+        background-color: #fff;
+        color: rgba(0, 0, 0, 0.87);
+        border-radius: 4px;
+        overflow: hidden;
+        width: 220px;
+        box-shadow: 0 0.5em 1em -0.125em hsl(0deg 0% 4% / 10%), 0 0 0 1px hsl(0deg 0% 4% / 2%);
+        border: 1px solid #e9eaee;
+        margin: 10px;
+    }
+
+    &__title {
+        font-size: 15px;
+        font-weight: bold;
+        padding: 5px;
+    }
+}

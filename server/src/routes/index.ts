@@ -4,11 +4,13 @@ import {
     getCatById,
     addCat,
     updateCat,
-    deleteCat
+    deleteCat,
+    getAllCatBreeds
 } from '../controllers/cats';
 
 const router: Router = Router();
 
+router.get('/cats/breeds', getAllCatBreeds);
 
 router.get('/cats/:id', getCatById);
 
