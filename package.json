@@ -1,9 +1,0 @@
-{
-  "name": "theCatApp",
-  "version": "1.0.0",
-  "description": "The cat app",
-  "main": "index.js",
-  "repository": "https://github.com/karthhhi/theCatApp.git",
-  "author": "Karthik <karthhhi@gmail.com>",
-  "license": "MIT"
-}
