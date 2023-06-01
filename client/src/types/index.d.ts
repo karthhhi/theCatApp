@@ -5,6 +5,7 @@ interface CatQueryType {
     breed?: string;
     limit?: number;
     page?: number;
+    [key: string]: string | number | boolean;
 }
 
 interface ICat {
@@ -21,11 +22,11 @@ type CatProps = {
 }
 
 type ApiDataType = {
-    message: string;
-    status: string;
-    cats: ICat[];
+    message?: string;
+    status?: string;
+    cats?: ICat[];
     cat?: ICat;
-    breeds: [];
-    totalPages: number;
-    currentPage: number;
+    breeds?: [];
+    totalPages?: number;
+    currentPage?: number;
 }

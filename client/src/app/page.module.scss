@@ -1,4 +1,7 @@
-.home {
+$page-item-border-color: #e9eaee;
+$page-not-found-color: rgb(244, 67, 54);
+
+.page {
     &__container {
         margin: 10px;
     }
@@ -9,7 +12,7 @@
     }
 
     &__dataItem {
-        border-top: 1px solid #e9eaee;
+        border-top: 1px solid $page-item-border-color;
         padding: 1px 5px;
         font-size: 13px;
     }
@@ -32,10 +35,10 @@
         margin: 0;
     }
 
-    &__notFound {
+    &__notFoundAndLoaderContainer {
         font-size: 20px;
         font-weight: bold;
-        color: rgb(244, 67, 54);
+        color: $page-not-found-color;
         margin: 60px auto;
     }
 

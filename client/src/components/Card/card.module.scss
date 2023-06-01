@@ -1,12 +1,16 @@
+$card-background-color: #ffffff;
+$card-font-color: rgba(0, 0, 0, 0.87);
+$card-border-color: #e9eaee;
+
 .card {
     &__container {
-        background-color: #fff;
-        color: rgba(0, 0, 0, 0.87);
+        background-color: $card-background-color;
+        color: $card-font-color;
         border-radius: 4px;
         overflow: hidden;
         width: 220px;
         box-shadow: 0 0.5em 1em -0.125em hsl(0deg 0% 4% / 10%), 0 0 0 1px hsl(0deg 0% 4% / 2%);
-        border: 1px solid #e9eaee;
+        border: 1px solid $card-border-color;
         margin: 10px;
     }
 

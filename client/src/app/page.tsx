@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect, use } from 'react';
 import { useSearchParams } from 'next/navigation';
-import styles from './home.module.scss';
+import styles from './page.module.scss';
 import Card from '@components/Card';
 import Input from '@components/Input';
 import Select from '@components/Select';
@@ -37,32 +37,32 @@ export default function Home() {
             }
             const { cats, totalPages } = await getAllCats(queryObj);
             setLoading(false);
-            setTotalPages(totalPages);
-            setAllCats(cats as []);
+            setTotalPages(totalPages || 0);
+            setAllCats(cats as [] || []);
         }
         fetchData(name);
     }, [name, search, currentPage, sortValue, sortOrder]);
 
     const {
-        home__container,
-        home__itemContainer,
-        home__dataItem,
-        home__filterBar,
-        home__actionContainer,
-        home__filterContainer,
-        home__sortContainer,
-        home__notFound
+        page__container,
+        page__itemContainer,
+        page__dataItem,
+        page__filterBar,
+        page__actionContainer,
+        page__filterContainer,
+        page__sortContainer,
+        page__notFoundAndLoaderContainer
     } = styles;
 
     return (
-        <div className={home__container}>
-            <div className={home__filterBar}>
+        <div className={page__container}>
+            <div className={page__filterBar}>
                 <h4>Breed: {search || 'All'}</h4>
-                <div className={home__actionContainer}>
-                    <div className={home__filterContainer}>
+                <div className={page__actionContainer}>
+                    <div className={page__filterContainer}>
                         <Input type="search" label="Filter By Name" onChange={setName} />
                     </div>
-                    <div className={home__sortContainer}>
+                    <div className={page__sortContainer}>
                         <Select
                             label="Sort By"
                             onChange={(val) => { setSortValue(val) }}
@@ -82,19 +82,20 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <div className={home__itemContainer}>
+            <div className={page__itemContainer}>
                 {allCats.length === 0 && (
-                    <div className={home__notFound}>
+                    <div className={page__notFoundAndLoaderContainer}>
                         {loading ? <Loader /> : <>No cats found!</>}
                     </div>
                 )}
-                {allCats.map(({ name, weight, breed }) => (
+                {allCats.map(({ name, weight, breed }, i) => (
                     <Card
+                        key={`${name}-${breed}-${i}`}
                         title={name}
                         description={
                             <>
-                                <div className={home__dataItem}>Breed: {breed}</div>
-                                <div className={home__dataItem}>Weight: {weight}</div>
+                                <div className={page__dataItem}>Breed: {breed}</div>
+                                <div className={page__dataItem}>Weight: {weight}</div>
                             </>
                         }
                     />))

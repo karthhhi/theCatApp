@@ -4,13 +4,22 @@ export const getAllCats = async (query: CatQueryType): Promise<ApiDataType> => {
     const queryKeys = Object.keys(query);
     let queryString: string = '';
     if(queryKeys.length !== 0) {
-        queryString = '?' + queryKeys.map((key) =>`${key}=${encodeURIComponent(query[key as keyof CatQueryType])}`).join('&');
+        queryString = '?' + queryKeys.map((key) =>`${key}=${encodeURIComponent(query[key])}`).join('&');
     }
-    const cats: Response = await fetch(`${baseUrl}/cats${queryString}`);
-    return cats.json();
+    try {
+        const cats: Response = await fetch(`${baseUrl}/cats${queryString}`);
+        return cats.json();
+    } catch {
+        return {};
+    }
+
 }
 
 export const getAllCatBreeds = async (): Promise<ApiDataType> => {
-    const breeds: Response = await fetch(`${baseUrl}/cats/breeds`);
-    return breeds.json();
+    try {
+        const breeds: Response = await fetch(`${baseUrl}/cats/breeds`);
+        return breeds.json();
+    } catch {
+        return {};
+    }
 }
