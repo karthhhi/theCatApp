@@ -57,7 +57,7 @@ export default function Home() {
     return (
         <div className={page__container}>
             <div className={page__filterBar}>
-                <h4>Breed: {search || 'All'}</h4>
+                <h4 data-testid="breed-heading">Breed: {search || 'All'}</h4>
                 <div className={page__actionContainer}>
                     <div className={page__filterContainer}>
                         <Input type="search" label="Filter By Name" onChange={setName} />
